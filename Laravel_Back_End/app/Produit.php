@@ -9,7 +9,7 @@ class Produit extends Model
 {
     protected $table='produits';
     protected $fillable=[
-        'titre','description','nbr_noted','is_active','image_id','reference'
+        'titre','description','prix','quantite'
     ];
     public function images()
     {
