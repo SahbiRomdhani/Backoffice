@@ -22,7 +22,9 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        $produits = Produit::orderBy('id','DESC')->get();
+        $produits = Produit::orderBy('id','DESC')
+        ->with('images')
+        ->get();
         return response()->json($produits);
 
     }
@@ -51,7 +53,7 @@ class ProduitController extends Controller
         $produit->description = $request->description;
         $produit->prix = $request->prix;
         $produit->quantite = $request->quantite;
-        $produit->user_id = 1;
+        //$produit->user_id = 1;
         $produit->save();
          /** Save image */
          if($request->hasFile('image')){

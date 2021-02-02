@@ -19,7 +19,7 @@ class CreateProduitsTable extends Migration
             $table->string('description');
             $table->double('prix');
             $table->integer('quantite');    
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->constrained('users')->nullable();
 
 
             $table->timestamps();
