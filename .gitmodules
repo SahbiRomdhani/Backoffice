@@ -1,0 +1,3 @@
+[submodule "back-office-angular-project"]
+	path = back-office-angular-project
+	url = https://github.com/SahbiRomdhani/Backoffice.git
