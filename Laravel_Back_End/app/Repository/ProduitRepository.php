@@ -2,13 +2,16 @@
 
 namespace  App\Repository;
 
+use App\Http\Requests\ProduitRequest;
 use App\Image;
 use App\Produit;
-use Symfony\Component\HttpFoundation\Request;
+use Illuminate\Http\Request;
 
 class ProduitRepository{
 
     public function create(Request $request){
+      
+       
         
         $produit = new Produit();
         $produit->titre = $request->titre;
@@ -17,7 +20,6 @@ class ProduitRepository{
         $produit->quantite = $request->quantite;
         $produit->save();
          /** Save image */
-         //json_decode
          if($request->hasFile('image')){
             $image = new Image();
             $file      = $request->file('image');
@@ -29,8 +31,10 @@ class ProduitRepository{
 
             $image->save();
         }
-        
-        return response()->json("Success");
+        $result="success";
+       
+    
+        return response()->json($result);
     }
 
 }

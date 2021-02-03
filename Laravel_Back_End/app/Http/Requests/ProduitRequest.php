@@ -15,6 +15,7 @@ class ProduitRequest extends FormRequest
     {
         return true;
     }
+    
 
     /**
      * Get the validation rules that apply to the request.
@@ -26,8 +27,23 @@ class ProduitRequest extends FormRequest
         return [
             'titre' => 'required',
             'description' => 'required',
-            'prix' => 'required|numeric',
-            'quantite' => 'require|numeric',
+            'prix' => 'required',
+            'quantite' => 'required',
+        ];
+    }
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'titre.required' => ' titre required',
+            'description.required'  => ' description required',
+            'prix.required'  => ' prix  required',
+            'quantite.required'  => ' quantite  required',
+
         ];
     }
 }

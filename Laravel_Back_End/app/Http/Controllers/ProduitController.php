@@ -37,8 +37,9 @@ class ProduitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProduitRequest $request)
     {
+      
         $prodCreated = $this->prodrep->create($request);
         return $prodCreated;
 
@@ -53,7 +54,7 @@ class ProduitController extends Controller
     public function show($id)
     {
         $findproduit = Produit::find($id) ->with('images')->get();
-        return response()->json("Sucess");
+        return response()->json($findproduit);
         
     }
 
