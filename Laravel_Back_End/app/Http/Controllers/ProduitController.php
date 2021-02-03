@@ -5,16 +5,16 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProduitRequest;
 use App\Image;
 use App\Produit;
-use App\Repositories\ProduitRepository;
+use App\Repository\ProduitRepository;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
 {
-    // private $prodrep;
-    // public function __construct(ProduitRepository $prodrep)
-    // {
-    //     $this->prodrep = $prodrep;
-    // }
+    private $prodrep;
+    public function __construct(ProduitRepository $prodrep)
+    {
+        $this->prodrep = $prodrep;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,36 +39,8 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-        // $prodCreated = $this->prodrep->create($request);
-        // return $prodCreated;
-        $this->validate($request, [
-            
-            'titre' => 'required',
-            'description' => 'required',
-            'prix' => 'required|numeric',
-            'quantite'   => 'required|numeric',
-        ]);
-        $produit = new Produit();
-        $produit->titre = $request->titre;
-        $produit->description = $request->description;
-        $produit->prix = $request->prix;
-        $produit->quantite = $request->quantite;
-        //$produit->user_id = 1;
-        $produit->save();
-         /** Save image */
-         if($request->hasFile('image')){
-            $image = new Image();
-            $file      = $request->file('image');
-            $filename  = $file->getClientOriginalName();
-            $picture   = date('His').'-'.$filename;
-            $file->move(public_path('img_produits'), $picture);
-            $image->url = $picture;
-            $produit->images()->save($image);
-
-            $image->save();
-        }
-        
-        return response()->json("Success");
+        $prodCreated = $this->prodrep->create($request);
+        return $prodCreated;
 
     }
 
