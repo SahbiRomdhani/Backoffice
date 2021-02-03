@@ -1,0 +1,73 @@
+<div class="container">  
+  <h1>Ajouter un Produit</h1>
+  
+  <form (ngSubmit)="onSubmit(prodForm)" #prodForm="ngForm">
+    <div class="row">
+      <div class="col-12 col-sm-6">  
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="titre"
+             required
+             [(ngModel)]="model.titre" name="titre"
+             #titre="ngModel">
+      <div *ngIf="titre.invalid && (titre.dirty || titre.touched)"
+           class="alert alert-danger">
+           titre is required
+      </div>
+    </div>
+      </div>
+      <div class="col-12 col-sm-6">  
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input type="text" class="form-control" id="description"
+             required
+             [(ngModel)]="model.description" name="description"
+             #description="ngModel">
+      <div *ngIf="description.invalid && (description.dirty || description.touched)"
+           class="alert alert-danger">
+           description is required
+      </div>
+    </div>
+      </div>
+      <div class="col-12 col-sm-6">  
+    <div class="form-group">
+      <label for="name">prix</label>
+      <input type="text" class="form-control" id="prix"
+             required
+             [(ngModel)]="model.prix" name="prix"
+             #prix="ngModel">
+      <div *ngIf="prix.invalid && (prix.dirty || prix.touched)"
+           class="alert alert-danger">
+           prix is required
+      </div>
+    </div>
+</div>
+    <div class="col-12 col-sm-6">  
+    <div class="form-group">
+      <label for="name">Quantite</label>
+      <input type="text" class="form-control" id="quantite"
+             required
+             [(ngModel)]="model.quantite" name="quantite"
+             #quantite="ngModel">
+      <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
+           class="alert alert-danger">
+           quantite is required
+      </div>
+    </div>
+    <div class="col-12 col-sm-6"> 
+    <div class="form-group">
+      
+      <label for="image">Image</label>
+      <input type="file" name="myFile" (change)="onSelect($event)">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button type="submit" class="btn btn-success" style="float: right;" [disabled]="!prodForm.form.valid">Submit</button>
+    </div>
+  </div>
+  </form>
+
+  
+
+</div>

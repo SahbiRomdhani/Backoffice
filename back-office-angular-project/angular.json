@@ -1,0 +1,217 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "erp-web": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "polyfills": "src/polyfills.ts",
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/plugins/morris/morris.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/core.css",
+              "src/assets/css/components.css",
+              "src/assets/css/icons.css",
+              "src/assets/css/pages.css",
+              "src/assets/css/menu.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/dataTables.bootstrap.min.css",
+              "src/assets/plugins/datatables/jquery.dataTables.min.css",
+              "node_modules/ng-busy/src/style/busy.css",
+              "src/assets/plugins/multiselect/css/multi-select.css",
+              "src/assets/plugins/select2/dist/css/select2.css",
+              "src/assets/plugins/select2/dist/css/select2-bootstrap.css",
+              "src/assets/plugins/Buttons-1.5.1/css/buttons.dataTables.css"
+            ],
+            "scripts": [
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/detect.js",
+              "src/assets/js/fastclick.js",
+              "src/assets/js/jquery.blockUI.js",
+              "src/assets/js/waves.js",
+              "src/assets/js/jquery.nicescroll.js",
+              "src/assets/js/jquery.slimscroll.js",
+              "src/assets/js/jquery.scrollTo.min.js",
+              "src/assets/plugins/jquery-knob/jquery.knob.js",
+              "src/assets/js/jquery.core.js",
+              "src/assets/js/jquery.app.js",
+              "src/assets/plugins/datatables/jquery.dataTables.min.js",
+              "src/assets/js/dataTables.bootstrap.min.js",
+              "src/assets/plugins/multiselect/js/jquery.multi-select.js",
+              "src/assets/plugins/select2/dist/js/select2.min.js",
+              "node_modules/sweetalert/dist/sweetalert.min.js",
+              "src/assets/plugins/Buttons-1.5.1/js/dataTables.buttons.js",
+              "src/assets/plugins/JSZip-2.5.0/jszip.min.js",
+              "src/assets/plugins/pdfmake-0.1.32/pdfmake.min.js",
+              "src/assets/plugins/pdfmake-0.1.32/vfs_fonts.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.flash.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.colVis.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.print.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.html5.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "erp-web:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "erp-web:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "erp-web:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "scripts": [
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/detect.js",
+              "src/assets/js/fastclick.js",
+              "src/assets/js/jquery.blockUI.js",
+              "src/assets/js/waves.js",
+              "src/assets/js/jquery.nicescroll.js",
+              "src/assets/js/jquery.slimscroll.js",
+              "src/assets/js/jquery.scrollTo.min.js",
+              "src/assets/plugins/jquery-knob/jquery.knob.js",
+              "src/assets/js/jquery.core.js",
+              "src/assets/js/jquery.app.js",
+              "src/assets/plugins/datatables/jquery.dataTables.min.js",
+              "src/assets/js/dataTables.bootstrap.min.js",
+              "src/assets/plugins/multiselect/js/jquery.multi-select.js",
+              "src/assets/plugins/select2/dist/js/select2.min.js",
+              "node_modules/sweetalert/dist/sweetalert.min.js",
+              "src/assets/plugins/Buttons-1.5.1/js/dataTables.buttons.js",
+              "src/assets/plugins/JSZip-2.5.0/jszip.min.js",
+              "src/assets/plugins/pdfmake-0.1.32/pdfmake.min.js",
+              "src/assets/plugins/pdfmake-0.1.32/vfs_fonts.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.flash.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.colVis.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.print.js",
+              "src/assets/plugins/Buttons-1.5.1/js/buttons.html5.js"
+            ],
+            "styles": [
+              "src/styles.css",
+              "src/assets/plugins/morris/morris.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/core.css",
+              "src/assets/css/components.css",
+              "src/assets/css/icons.css",
+              "src/assets/css/pages.css",
+              "src/assets/css/menu.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/dataTables.bootstrap.min.css",
+              "src/assets/plugins/datatables/jquery.dataTables.min.css",
+              "node_modules/ng-busy/src/style/busy.css",
+              "src/assets/plugins/multiselect/css/multi-select.css",
+              "src/assets/plugins/select2/dist/css/select2.css",
+              "src/assets/plugins/select2/dist/css/select2-bootstrap.css",
+              "src/assets/plugins/Buttons-1.5.1/css/buttons.dataTables.css"
+            ],
+            "assets": [
+              "src/assets",
+              "src/favicon.ico"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "erp-web-e2e": {
+      "root": "e2e",
+      "sourceRoot": "e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "erp-web:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "erp-web",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
+}
