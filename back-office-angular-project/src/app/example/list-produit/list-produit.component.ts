@@ -25,10 +25,47 @@ export class ListProduitComponent implements OnInit {
     return this._sanitizer.sanitize(SecurityContext.HTML, this._sanitizer.bypassSecurityTrustHtml("http://127.0.0.1:8000/img_produits/" + imageurl));
 
   }
-delete(id){}
+
+  delete(id: any) {
+
+    console.log(id);
+    Swal.fire({
+      title: 'Êtes-vous sûr?',
+      text: 'Vous ne pourrez pas récupérer!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Oui, supprimez-le!',
+      cancelButtonText: 'Non, garde-le'
+    }).then((result) => {
+      if (result.value) {
+        return this.prodService.deleteproduit(id).subscribe(data => {
+            console.log("sucess");
+            Swal.fire(
+              'Deleted!',
+              'produit a été supprimé.',
+              'success'
+            )
+            window.location.reload();
+            //this.router.navigate["/home"];
+
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
+      // For more information about handling dismissals please visit
+      // https://sweetalert2.github.io/#handling-dismissals
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'Votre produit est sécurisé :)',
+          'error'
+        )
+      }
+    }) 
 
   
 
 
-  }
 }
