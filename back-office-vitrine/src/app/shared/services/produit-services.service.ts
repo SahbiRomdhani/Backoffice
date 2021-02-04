@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ProduitService {
+export class ProduitServicesService {
 
   apiUrl: string = 'http://localhost:8000/api/produit/';
 
@@ -35,5 +35,5 @@ export class ProduitService {
     return this.http.get( this.apiUrl+id);
 
   }
-  
+ 
 }
