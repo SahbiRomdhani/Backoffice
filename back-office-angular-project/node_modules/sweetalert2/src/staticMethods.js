@@ -5,7 +5,6 @@ export * from './staticMethods/mixin.js'
 export * from './staticMethods/queue.js'
 export * from './staticMethods/showLoading.js'
 export * from './staticMethods/timer.js'
-export * from './staticMethods/bindClickHandler.js'
 export {
   isValidParameter,
   isUpdatableParameter,

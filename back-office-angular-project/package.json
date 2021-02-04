@@ -32,7 +32,7 @@
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.0.0-rc.0",
     "sweetalert": "^2.1.0",
-    "sweetalert2": "^10.14.0",
+    "sweetalert2": "^9.11.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

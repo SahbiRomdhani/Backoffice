@@ -101,7 +101,7 @@ class ProduitController extends Controller
     public function destroy($id)
     {
         $produitdeleted = Produit::findOrFail($id);
-        $image = Image::where('owner_id',$id)->first()->delete();
+        //$image = Image::where('owner_id',$id)->first()->delete();
  
         $produitdeleted->delete();
        return response()->json('done');

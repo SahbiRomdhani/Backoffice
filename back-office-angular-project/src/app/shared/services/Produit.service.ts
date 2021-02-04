@@ -18,7 +18,7 @@ const httpOptions = {
 })
 export class ProduitService {
 
-  apiUrl: string = 'http://localhost:8000/api/produit';
+  apiUrl: string = 'http://localhost:8000/api/produit/';
 
   constructor(private http: HttpClient) { }
 
@@ -34,12 +34,17 @@ export class ProduitService {
 
 }
 
-  Produittbyid(id): Observable<any> {
+  Produittbyid(id:any): Observable<any> {
 
-    return this.http.get( this.apiUrl+'produit/'+id);
+    return this.http.get( this.apiUrl+id);
 
   }
-  updateProd(id,data): Observable<any> {
+  deleteproduit(id:any): Observable<any> {
+
+    return this.http.delete( this.apiUrl+id);
+
+  }
+  updateProd(id:any,data:any): Observable<any> {
       console.log("data",data)
       return this.http.put( this.apiUrl+'produit/'+id,data);
 
