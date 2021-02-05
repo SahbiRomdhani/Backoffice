@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use App\Adresse;
+use App\Http\Requests\UserRequest;
+
 class UserController extends Controller
 {
     /**
@@ -38,24 +40,24 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function signup(Request $request){
+    public function signup(UserRequest $request){
        $user = new User();
        $user->nom = $request->nom;
        $user->prenom = $request->prenom;
        $user->email = $request->email;
        $user->password = bcrypt($request->password);
-       
-       if($request->rue || $request->region || $request->code_postale){
+
+       /**adresse */
         $adress = new Adresse();
         $adress->rue = $request->rue;
         $adress->region = $request->region;
         $adress->code_postale = $request->code_postale;
         $adress->pays = $request->pays;
         $adress->save();
+        /**end of adresse */
+        /**put id of adresse  to adresse_id field */
         $user->adresse_id =  $adress->id;
-       }
-       
-
+      
        $user->save();
 
         return $this->login($request);
