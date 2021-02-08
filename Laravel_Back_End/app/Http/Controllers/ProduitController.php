@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Acheter;
 use App\Http\Requests\ProduitRequest;
 use App\Image;
 use App\Produit;
@@ -28,7 +29,22 @@ class ProduitController extends Controller
         return response()->json($produits);
 
     }
+/**
+     * Acheter a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function acheter(Request $request)
+    {
+        $achete = new Acheter();
+        $achete->user_id = $request->user_id;
+        $achete->produit_id = $request->produit_id;
+        $achete->quantite = $request->quantite;
+        $achete->save();
+        return response()->json('done');
 
+    }
   
 
     /**

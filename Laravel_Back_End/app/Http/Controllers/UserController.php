@@ -50,8 +50,8 @@ class UserController extends Controller
        /**adresse */
         $adress = new Adresse();
         $adress->rue = $request->rue;
-        $adress->region = $request->region;
-        $adress->code_postale = $request->code_postale;
+        $adress->ville = $request->ville;
+        $adress->code = $request->code;
         $adress->pays = $request->pays;
         $adress->save();
         /**end of adresse */

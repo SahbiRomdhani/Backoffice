@@ -24,30 +24,18 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|unique',
+            'email'=>'required|unique:users',
             'nom'=>'required',
             'password'=>'required|confirmed',
             'prenom'=>'required',
             'rue'=>'required',
-            'region'=>'required',
+            'ville'=>'required',
             'pays'=>'required',
-            'code_postal'=>'required',
+            'code'=>'required'
 
         ];
     }
-  /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        return [
-            'email.unique'  => ' email deja utilisée',
-
-        ];
-    }
-
+ 
 
 
 

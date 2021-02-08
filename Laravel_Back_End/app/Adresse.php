@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adresse extends Model
 {
-    protected $table='adresse';
+    protected $table='adresses';
     protected $fillable=[
-        'ville','code_postal','pays','rue'
+        'ville','code','pays','rue'
     ];
 
 

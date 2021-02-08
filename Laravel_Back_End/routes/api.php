@@ -1,7 +1,7 @@
 <?php
 
 
-/** Auth Route  */
+/** User Route  */
 
 Route::group([
 
@@ -16,6 +16,7 @@ Route::group([
 
 });
 
+/** Auth Route  */
 Route::group([
 
   'middleware' => 'api',
@@ -35,4 +36,6 @@ Route::post('me', 'AuthController@me');
 
 /** Produit Route */
 Route::resource('/produit','ProduitController');
+Route::post('/produit/acheter','ProduitController@acheter');
+
 

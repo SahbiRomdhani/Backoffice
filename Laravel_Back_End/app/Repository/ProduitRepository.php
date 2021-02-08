@@ -36,5 +36,8 @@ class ProduitRepository{
     
         return response()->json($result);
     }
+    public function Acheter(Request $request){
+       
+    }
 
 }
